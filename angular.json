@@ -1,6 +1,47 @@
 {
   "version": 1,
   "projects": {
+    "common-components": {
+      "projectType": "library",
+      "root": "libs/common-components",
+      "sourceRoot": "libs/common-components/src",
+      "prefix": "rob",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/common-components"],
+          "options": {
+            "project": "libs/common-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/common-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/common-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/common-components"],
+          "options": {
+            "jestConfig": "libs/common-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/common-components/src/**/*.ts",
+              "libs/common-components/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "playground": {
       "projectType": "application",
       "root": "apps/playground",
@@ -119,6 +160,57 @@
             "lintFilePatterns": ["apps/playground-e2e/**/*.{js,ts}"]
           }
         }
+      }
+    },
+    "shiny-components": {
+      "projectType": "library",
+      "root": "libs/shiny-components",
+      "sourceRoot": "libs/shiny-components/src",
+      "prefix": "rob",
+      "architect": {
+        "base-build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/shiny-components"],
+          "options": {
+            "project": "libs/shiny-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shiny-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shiny-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shiny-components"],
+          "options": {
+            "jestConfig": "libs/shiny-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shiny-components/src/**/*.ts",
+              "libs/shiny-components/src/**/*.html"
+            ]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+              "commands": [
+                  "nx base-build shiny-components",
+                  "echo done"
+              ],
+              "parallel": false
+          }
+      }
       }
     }
   },

@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@rob/common-components": ["libs/common-components/src/index.ts"],
+      "@shiny/common-components": ["libs/shiny-components/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

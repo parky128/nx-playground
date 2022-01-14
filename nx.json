@@ -27,12 +27,18 @@
     ]
   },
   "projects": {
+    "common-components": {
+      "tags": []
+    },
     "playground": {
       "tags": []
     },
     "playground-e2e": {
       "tags": [],
       "implicitDependencies": ["playground"]
+    },
+    "shiny-components": {
+      "tags": []
     }
   }
 }
