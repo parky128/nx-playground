@@ -7,7 +7,8 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "run1": "ng run shiny-components:build",
+    "run2": "ng run shiny-components:build-with-task"
   },
   "private": true,
   "dependencies": {

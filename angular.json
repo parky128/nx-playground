@@ -168,7 +168,7 @@
       "sourceRoot": "libs/shiny-components/src",
       "prefix": "rob",
       "architect": {
-        "base-build": {
+        "build": {
           "builder": "@nrwl/angular:package",
           "outputs": ["dist/libs/shiny-components"],
           "options": {
@@ -201,11 +201,11 @@
             ]
           }
         },
-        "build": {
+        "build-with-task": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
               "commands": [
-                  "nx base-build shiny-components",
+                  "nx build shiny-components",
                   "echo done"
               ],
               "parallel": false
